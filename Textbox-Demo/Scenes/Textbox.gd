@@ -13,6 +13,7 @@ var text
 
 func _ready():
 	_character_select()
+	_display_name()
 	_display_text()
 
 func _physics_process(_delta):
@@ -21,6 +22,9 @@ func _physics_process(_delta):
 		Global.index += 1
 		letter_index = 0
 		_display_text()
+
+func _display_name():
+	$MarginContainer/Panel/Name.text = text[0]
 
 func _display_text():
 	if Global.index < text.size():

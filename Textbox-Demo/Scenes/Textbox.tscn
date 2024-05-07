@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://bek1wfp3ttxuq"]
+
+[ext_resource type="Script" path="res://Scenes/Textbox.gd" id="1_dd3et"]
+[ext_resource type="FontFile" uid="uid://0ysa024wmmgq" path="res://Assets/RetroGaming.ttf" id="2_h2lqv"]
+[ext_resource type="Theme" uid="uid://ilpyd2ctv6tk" path="res://Assets/Textbox.tres" id="2_u1kb0"]
+[ext_resource type="LabelSettings" uid="uid://bjvco5i5bgsgc" path="res://Assets/Text.tres" id="4_xamr7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2waqw"]
+font = ExtResource("2_h2lqv")
+font_size = 22
+
+[sub_resource type="Animation" id="Animation_ejcol"]
+resource_name = "Make Choice"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_g66j8"]
+resource_name = "Make Choice"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_4kwl1"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsyip"]
+_data = {
+"Make Choice": SubResource("Animation_ejcol"),
+"Make Choice (2)": SubResource("Animation_g66j8"),
+"RESET": SubResource("Animation_4kwl1")
+}
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dd3et")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 92.5
+offset_top = 380.0
+offset_right = 1056.5
+offset_bottom = 621.0
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 25
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_u1kb0")
+
+[node name="Name" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 17.5
+offset_top = 14.0
+offset_right = 213.5
+offset_bottom = 42.0
+text = "Name"
+label_settings = SubResource("LabelSettings_2waqw")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -167.0
+offset_right = 358.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("4_xamr7")
+autowrap_mode = 3
+text_overrun_behavior = 3
+text_direction = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hsyip")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
