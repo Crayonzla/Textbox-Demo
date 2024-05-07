@@ -73,7 +73,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
+[node name="Text" type="Label" parent="MarginContainer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
