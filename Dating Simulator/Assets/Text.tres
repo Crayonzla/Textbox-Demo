@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bjvco5i5bgsgc"]
+
+[ext_resource type="FontFile" uid="uid://0ysa024wmmgq" path="res://Assets/RetroGaming.ttf" id="1_4tcno"]
+
+[resource]
+font = ExtResource("1_4tcno")
+font_size = 22

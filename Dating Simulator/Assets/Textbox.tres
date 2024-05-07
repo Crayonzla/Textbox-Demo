@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ilpyd2ctv6tk"]
+
+[ext_resource type="Texture2D" uid="uid://cgaoc85nhuwhc" path="res://Assets/TextBox.png" id="1_bamvt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kftnf"]
+texture = ExtResource("1_bamvt")
+texture_margin_left = 6.0
+texture_margin_top = 5.85136
+texture_margin_right = 6.0
+texture_margin_bottom = 10.0539
+region_rect = Rect2(0, 0, 48, 48)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_kftnf")

@@ -1,0 +1,204 @@
+[gd_scene load_steps=10 format=3 uid="uid://bek1wfp3ttxuq"]
+
+[ext_resource type="Script" path="res://Scenes/Textbox.gd" id="1_dd3et"]
+[ext_resource type="FontFile" uid="uid://0ysa024wmmgq" path="res://Assets/RetroGaming.ttf" id="2_h2lqv"]
+[ext_resource type="Theme" uid="uid://ilpyd2ctv6tk" path="res://Assets/Textbox.tres" id="2_u1kb0"]
+[ext_resource type="LabelSettings" uid="uid://bjvco5i5bgsgc" path="res://Assets/Text.tres" id="4_xamr7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2waqw"]
+font = ExtResource("2_h2lqv")
+font_size = 22
+
+[sub_resource type="Animation" id="Animation_ejcol"]
+resource_name = "Make Choice"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700, 285), Vector2(700, 385)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_g66j8"]
+resource_name = "Make Choice"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700, 385), Vector2(700, 285)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4kwl1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(699, 382)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsyip"]
+_data = {
+"Make Choice": SubResource("Animation_ejcol"),
+"Make Choice (2)": SubResource("Animation_g66j8"),
+"RESET": SubResource("Animation_4kwl1")
+}
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dd3et")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 699.0
+offset_top = 382.0
+offset_right = 906.0
+offset_bottom = 571.0
+
+[node name="Panel2" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_u1kb0")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Choice 1" type="Button" parent="PanelContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+button_mask = 3
+text = "sasdasd"
+flat = true
+icon_alignment = 1
+
+[node name="Choice 2" type="Button" parent="PanelContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+button_mask = 3
+text = "sasdasd"
+flat = true
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 92.5
+offset_top = 380.0
+offset_right = 1056.5
+offset_bottom = 621.0
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 25
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_u1kb0")
+
+[node name="Name" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 17.5
+offset_top = 14.0
+offset_right = 213.5
+offset_bottom = 42.0
+text = "Tokugawa-San"
+label_settings = SubResource("LabelSettings_2waqw")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -167.0
+offset_right = 358.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("4_xamr7")
+autowrap_mode = 3
+text_overrun_behavior = 3
+text_direction = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hsyip")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
